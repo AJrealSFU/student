@@ -35,26 +35,26 @@ public class studentcontroller {
     public String delStudent(@RequestParam Map<String, String> delStudent){
         System.out.println("del student");
         if(delStudent.get("sid").isEmpty() == true){
-            return"/student/faildel";
+            return"student/faildel";
         }
         int id = Integer.parseInt(delStudent.get("sid"));
         student student = studentRepo.findBySid(id);
         if(student == null){
-            return"/student/faildel";
+            return"student/faildel";
         }
         studentRepo.delete(student);
-        return"/student/addedStudent";
+        return"student/addedStudent";
     }
 
     @PostMapping("student/edit")
     public String postMethodName(@RequestParam Map<String, String> edit) {
         if(edit.get("sid").isEmpty() == true){
-            return"/student/failedit";
+            return"student/failedit";
         }
         int id = Integer.parseInt(edit.get("sid"));
         student editing = studentRepo.findBySid(id);
         if(editing == null){
-            return"/student/failedit";
+            return"student/failedit";
         }
         String newName = edit.get("name");   
         if(newName.isBlank() == true){
@@ -90,7 +90,7 @@ public class studentcontroller {
             editing.setWeight(Double.parseDouble(newWeight));
         }
         studentRepo.save(editing);
-        return "/student/addedstudent";
+        return "student/addedstudent";
     }
     
     
@@ -111,11 +111,11 @@ public class studentcontroller {
            newGPA == null || newGPA.isEmpty() ||
            newWeight == null || newWeight.isEmpty() ||
            newHeight == null || newHeight.isEmpty()) {
-            return "/student/failed";
+            return "student/failed";
         }
 
         studentRepo.save(new student(newName, newHair, Double.parseDouble(newGPA), Double.parseDouble(newWeight), Double.parseDouble(newHeight), newMajor));  
-        return"/student/addedStudent";
+        return"student/addedStudent";
     }
 
 
