@@ -38,16 +38,16 @@
         <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: yellow;" onclick="redirect('edit')">Edit Student</button>
     </div>
 </fieldset>  
-<fieldset class="col" style="border: 2px solid black;">
+<fieldset class="col" style="border: 2px solid;">
     <h1 class="DataName" style="text-align: center;">Student Models</h1>
     <div class="displaymodel" style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-content: flex-start; padding: 10px;">
     <div th:each="student:${stu}">
-        <div th:style="'width: ' + ${student.weight} + 'px; height: ' + ${student.height} + 'px; background-color: '"
+        <div th:style="'width: ' + ${student.weight} + 'px; height: ' + ${student.height} + 'px; border-color: ' + ${student.hair}"
         style="text-align: center; justify-content: center; align-items: center; display: flex;"
         class="viewModel">
         <p style="display: inline-block; vertical-align: middle;" id="stuname" th:text="${student.name}" th:style="'color: ' + ${student.hair}"></p>
-        <p th:text="${student.major}"></p>
-        <p th:text="${student.gpa}"></p>
+        <p th:text="${student.major}" th:style="'color: ' + ${student.hair}"></p>
+        <p th:text="${student.gpa}" th:style="'color: ' + ${student.hair}"></p>
         </div>
     </div>
     </div>
