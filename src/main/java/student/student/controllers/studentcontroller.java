@@ -90,7 +90,7 @@ public class studentcontroller {
             editing.setWeight(Double.parseDouble(newWeight));
         }
         studentRepo.save(editing);
-        return "student/addedstudent";
+        return "student/addedStudent";
     }
     
     
