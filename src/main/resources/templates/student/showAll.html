@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/show.css">
+    <title>Student Application</title>
+</head>
+<body class="row">
+</head>
+<fieldset class="col" style="border: 2px solid black;">
+    <div>
+    <h1 class="DataName">Student Database</h1>
+    <table class="display_database">
+        <tr>
+            <th class="TableHead"> Entry</th>
+            <th class="TableHead">Name</th>
+            <th class="TableHead" >Major</th>
+            <th class="TableHead" >GPA</th>
+            <th class="TableHead" >Weight</th>
+            <th class="TableHead" >Height</th>
+            <th class="TableHead" >Hair Color</th>
+        </tr>
+        <tr th:each="student:${stu}">
+            <td class="Tableid" th:text="${student.sid}"></td>
+            <td class="Tableid" th:text="${student.name}"></td>
+            <td class="Tableid" th:text="${student.major}"></td>
+            <td class="Tableid" th:text="${student.gpa}"></td>
+            <td class="Tableid" th:text="${student.weight}"></td>
+            <td class="Tableid" th:text="${student.height}"></td>
+            <td class="Tableid" th:text="${student.hair}"></td>
+        </tr>
+    </table>
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: lightgreen;" onclick="redirect('add')">Add Studnet</button>
+        <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: red;" onclick="redirect('del')">Delete Student</button>
+        <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: yellow;" onclick="redirect('edit')">Edit Student</button>
+    </div>
+</fieldset>  
+<fieldset class="col" style="border: 2px solid black;">
+    <h1 class="DataName" style="text-align: center;">Student Models</h1>
+    <div class="displaymodel" style="display: flex; flex-wrap: wrap; justify-content: flex-start; align-content: flex-start; padding: 10px;">
+    <div th:each="student:${stu}">
+        <div th:style="'width: ' + ${student.weight} + 'px; height: ' + ${student.height} + 'px; background-color: '"
+        style="text-align: center; justify-content: center; align-items: center; display: flex;"
+        class="viewModel">
+        <p style="display: inline-block; vertical-align: middle;" id="stuname" th:text="${student.name}" th:style="'color: ' + ${student.hair}"></p>
+        <p th:text="${student.major}"></p>
+        <p th:text="${student.gpa}"></p>
+        </div>
+    </div>
+    </div>
+    <script>
+    </script>
+</fieldset>
+</body>
+  <script>
+    var type
+    function redirect(type){
+        if(type == "add"){window.location.href = "/add.html";}
+        else if(type == "del"){window.location.href = "/delete.html"}
+        else if(type == "edit"){window.location.href = "/edit.html"}
+    }
+  </script>
+</html>
