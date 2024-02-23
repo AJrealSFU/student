@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface studentRepository extends JpaRepository<student,Integer>{
+    //res function to find students in database
     List<student> findByGpa(double gpa);
     List<student> findByWeight(double weight);
     List<student> findByMajor(String major);

@@ -9,6 +9,7 @@
 </head>
 <body class="row">
 </head>
+<!-- Table and nagivation of view page/ front page -->
 <fieldset class="col" style="border: 2px solid black;">
     <div>
     <h1 class="DataName">Student Database</h1>
@@ -32,11 +33,13 @@
             <td class="Tableid" th:text="${student.hair}"></td>
         </tr>
     </table>
+    <!-- Button takes to each function each have a seprate html page -->
     <div class="d-flex justify-content-center">
-        <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: lightgreen;" onclick="redirect('add')">Add Studnet</button>
+        <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: lightgreen;" onclick="redirect('add')">Add Student</button>
         <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: red;" onclick="redirect('del')">Delete Student</button>
         <button type="button" class="btn btn-primary text-black" style="margin: 10px; background-color: yellow;" onclick="redirect('edit')">Edit Student</button>
     </div>
+<!-- Model View based on each studnet data-->
 </fieldset>  
 <fieldset class="col" style="border: 2px solid;">
     <h1 class="DataName" style="text-align: center;">Student Models</h1>
@@ -56,7 +59,8 @@
 </fieldset>
 </body>
   <script>
-    var type
+    var type;
+    // directs each button type to its designated hmtl 
     function redirect(type){
         if(type == "add"){window.location.href = "/add.html";}
         else if(type == "del"){window.location.href = "/delete.html"}
