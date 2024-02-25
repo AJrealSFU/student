@@ -1,5 +1,6 @@
 # Student Application
-##Possible Functions 
+
+## Possible Functions
 ### Add: 
 enter all user information and submit fails if user doesn't fill in all fields. Restrictions on eahc field: GPA <= 4.0, 0 <= weight <= 999.00, 0 <= height <= 999.00
 
