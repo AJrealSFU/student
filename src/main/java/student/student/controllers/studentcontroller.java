@@ -28,7 +28,7 @@ public class studentcontroller {
     public String getAllstudents(Model model){
         System.out.println("Getting All Student");
         //get all students from database
-        List<student> student = studentRepo.findAll();
+        List<student> student = studentRepo.findAllByOrderBySid();
         model.addAttribute("stu", student);
         //return to view and show
         return "student/showAll";

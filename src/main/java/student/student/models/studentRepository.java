@@ -14,4 +14,5 @@ public interface studentRepository extends JpaRepository<student,Integer>{
     List<student> findByHeight(double height);
     student findBySid(int sid);
     void deleteBySid(int sid);
+    List<student> findAllByOrderBySid();
 }
